@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #mapContainer {
+            width: 80%;
+            height: 70vh;
+            border: 2px solid #ddd;
+            margin-top: 20px;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+        }
+        iframe.active {
+            display: block;
+        }
+        .mapSelector {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        #loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            color: gray;
+            z-index: 2; /* Ensures the loading message is above the iframe */
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent background */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #description {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jamuna River</h1>
+
+    <select id="mapSelector" class="mapSelector">
+        <option value="map1">Map 1</option>
+        <option value="map2">Map 2</option>
+        <option value="map3">Map 3</option>
+    </select>
+
+    <div id="mapContainer">
+        <div id="loading">Loading map...</div>
+        <iframe id="map1" src="NDVI.html"></iframe>
+
+        <iframe id="map2" src="Layered_map.html"></iframe>
+        <iframe id="map3" src="colorcoded_map.html"></iframe>
+    </div>
+
+    <div id="description">Please select a map to view the description.</div>
+
+    <script>
+        const mapSelector = document.getElementById("mapSelector");
+        const description = document.getElementById("description");
+        const loading = document.getElementById("loading");
+
+        const descriptions = {
+            map1: "This map provides a layered view of the Jamuna River.",
+            map2: "This map shows the NDVI (Normalized Difference Vegetation Index) around the Jamuna River.",
+            map3: "This is a color-coded map highlighting various regions along the river.",
+        };
+
+        mapSelector.addEventListener("change", function () {
+            const selectedMap = this.value;
+
+            // Show loading indicator
+            loading.style.display = "block";
+
+            // Hide all maps initially
+            document.querySelectorAll("iframe").forEach(map => {
+                map.classList.remove("active");
+            });
+
+            // Update description
+            description.textContent = descriptions[selectedMap] || "Loading map description...";
+
+            // Show selected map and hide loading once it's loaded
+            const selectedIframe = document.getElementById(selectedMap);
+            if (selectedIframe) {
+                selectedIframe.onload = () => {
+                    loading.style.display = "none";
+                };
+                selectedIframe.classList.add("active");
+            }
+        });
+
+        // Trigger initial map selection to ensure correct setup
+        mapSelector.dispatchEvent(new Event('change'));
+    </script>
+
+</body>
+</html>

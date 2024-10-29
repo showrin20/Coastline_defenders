@@ -1,111 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Viewer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        #mapContainer {
-            width: 80%;
-            height: 70vh;
-            border: 2px solid #ddd;
-            margin-top: 20px;
-            position: relative;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: none;
-        }
-        iframe.active {
-            display: block;
-        }
-        .mapSelector {
-            width: 50%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        #loading {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18px;
-            color: gray;
-        }
-        #description {
-            margin-top: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coastline Defenders</title>
+    <link rel="stylesheet" href="css\style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+  </head>
+  <body>
 
-    <h1>Jamuna River</h1>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
 
-    <select id="mapSelector" class="mapSelector">
-        <option value="map1">Map 1</option>
-        <option value="map2">Map 2</option>
-        <option value="map3">Map 3</option>
-    </select>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <div id="mapContainer">
-        <div id="loading">Loading map...</div>
-        <iframe id="map1" src="Layered_map.html"></iframe>
-        <iframe id="map2" src="NDVI.html"></iframe>
-        <iframe id="map3" src="colorcoded_map.html"></iframe>
-    </div>
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.jpg" width="70px"></a>
 
-    <div id="description">Please select a map to view the description.</div>
+            <li class="nav-item">
+              <a class="nav-link" href="#banner">Discover Our Mission</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#What we Offer">What We Offer</a>
+            </li>
+        
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Explore Our Key Features</a>
+            </li>
+          </ul>
+        
+        </div>
+        
+      </div>
+    </nav>
 
-    <script>
-        const mapSelector = document.getElementById("mapSelector");
-        const description = document.getElementById("description");
-        const loading = document.getElementById("loading");
-        const mapContainer = document.getElementById("mapContainer");
+    <section class="service-section" id="features" style="background-color: #f5f5f5; padding: 60px 0;">
 
-        const descriptions = {
-            map1: "This map provides a layered view of the Jamuna River.",
-            map2: "This map shows the NDVI (Normalized Difference Vegetation Index) around the Jamuna River.",
-            map3: "This is a color-coded map highlighting various regions along the river.",
-        };
+        <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h3 class="workflow-header" style="
+            font-family: 'Google Sans', sans-serif; 
+            color: #fff; 
+            font-size: 36px; 
+            margin-bottom: 50px; 
+            text-align: center; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #4caf50, #8bc34a); 
+            border-radius: 10px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s, box-shadow 0.3s;">
+            Explore Our Key Features
+        </h3>
+        
+      
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-12" style="padding: 15px;">
+              <div class="icon-box" style="background: #ffffff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <p class="service-title" style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">
+                  <a href="#" style="text-decoration: none; color: #0275d8;">Comprehensive Monitoring of River Erosion</a>
+                </p>
+                <p class="service-para" style="color: #555; font-size: 16px; line-height: 1.6;">
+                  Stay ahead of environmental challenges with tools to monitor erosion along the Jamuna River. Use satellite imagery, predictive models, and data visualization to track changes, empowering communities with insights to mitigate erosion impacts.
+                </p>
+              </div>
+            </div>
+      
+            <div class="col-md-6 col-lg-6 col-12" style="padding: 15px;">
+              <div class="icon-box" style="background: #ffffff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <p class="service-title" style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">
+                  <a href="#" style="text-decoration: none; color: #0275d8;">Tailored Erosion Mitigation Plans</a>
+                </p>
+                <p class="service-para" style="color: #555; font-size: 16px; line-height: 1.6;">
+                  Enroll in our Erosion Mitigation Program (EMP) to receive customized action plans. Use AI-powered analysis to assess riverbank risks and access real-time recommendations to respond effectively.
+                </p>
+              </div>
+            </div>
+      
+            <div class="col-md-6 col-lg-6 col-12" style="padding: 15px;">
+              <div class="icon-box" style="background: #ffffff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <p class="service-title" style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">
+                  <a href="#" style="text-decoration: none; color: #0275d8;">Geospatial Tools for Flood Risk Management</a>
+                </p>
+                <p class="service-para" style="color: #555; font-size: 16px; line-height: 1.6;">
+                  Visualize riverbank changes with real-time geospatial tools. Identify high-risk zones and plan evacuations with offline mapping features for better disaster management.
+                </p>
+              </div>
+            </div>
+      
+            <div class="col-md-6 col-lg-6 col-12" style="padding: 15px;">
+              <div class="icon-box" style="background: #ffffff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <p class="service-title" style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">
+                  <a href="#" style="text-decoration: none; color: #0275d8;">Real-Time River Monitoring and Predictive Analysis</a>
+                </p>
+                <p class="service-para" style="color: #555; font-size: 16px; line-height: 1.6;">
+                  Leverage AI and satellite data for real-time monitoring. Predict future erosion trends and generate actionable insights to protect vulnerable communities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      
+      
 
-        mapSelector.addEventListener("change", function () {
-            const selectedMap = this.value;
 
-            // Show loading indicator
-            loading.style.display = "block";
 
-            // Hide all maps initially
-            document.querySelectorAll("iframe").forEach(map => {
-                map.classList.remove("active");
-            });
 
-            // Update description
-            description.textContent = descriptions[selectedMap] || "Loading map description...";
 
-            // Show selected map and hide loading once it's loaded
-            const selectedIframe = document.getElementById(selectedMap);
-            if (selectedIframe) {
-                selectedIframe.onload = () => {
-                    loading.style.display = "none";
-                };
-                selectedIframe.classList.add("active");
-            }
-        });
-    </script>
 
+    <section class="footer" id="footer">
+        <footer class="bg-dark text-light text-center py-4" id="footer
+        ">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-12 mt-4 mt-md-0">
+                <div class="form-container">
+                  <h3>Contact Us</h3>
+                  <form action="/submit_contact_form" method="POST">
+                      <div class="form-group">
+                          <input type="text" class="form-control" name="name" placeholder="Your Name" required style="margin-bottom: 15px;">
+                      </div>
+                      <div class="form-group">
+                          <input type="email" class="form-control" name="email" placeholder="Your Email" required style="margin-bottom: 15px;">
+                      </div>
+                      <div class="form-group">
+                          <textarea class="form-control" name="message" rows="3" placeholder="Your Message" required style="margin-bottom: 15px;"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+              </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-12 mt-4 mt-md-0">
+                <!-- Content above the footer -->
+            
+                <!-- Footer -->
+                <footer class="footer mt-4">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Contact Information -->
+                            <div class="col-md-6 col-lg-6 col-12 mt-4 mt-md-0">
+
+      
+                                   <a href="" style="color: white; text-decoration: none;">Privacy Policy</a> <br>
+                                   <a href="" style="color: white; text-decoration: none;">Terms of Use</a> <br>
+                                   <a href="" style="color: white; text-decoration: none;">FAQ</a>
+                             
+                                
+                            </div>
+                            <!-- Quick Links -->
+                   
+                            <!-- Social Media Links -->
+                            <div class="col-md-6 col-lg-6 col-12 mt-4 mt-md-0">
+                                <h4>Follow Us</h4>
+                                <div class="social-icons">
+                                    <a href="#" class="social-link"  style="color: white;"><i class="fab fa-facebook"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter" style="color: white;"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in" style="color: white;"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-youtube" style="color: white;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <!-- Copyright and Credits -->
+                            <div class="col-md-12">
+                                <p class="footer-text">&copy; 2024 Coastline Defenders All Rights Reserved.</p>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            
+             
+            </div>
+          </div>
+        </footer>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"
+></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="myscript.js"></script>
 </body>
 </html>

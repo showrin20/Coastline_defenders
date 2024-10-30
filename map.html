@@ -105,9 +105,9 @@
     <h1>Jamuna River</h1>
 
     <select id="mapSelector" class="mapSelector">
-        <option value="map1">Map 1</option>
-        <option value="map2">Map 2</option>
-        <option value="map3">Map 3</option>
+        <option value="map1">Normalized Difference Vegetation Index (NDVI) Map</option>
+        <option value="map2">Jamuna Change Map</option>
+        <option value="map3">Shoreline Change Prediction Map (Clustered: High to Low )</option>
     </select>
 
     <div id="mapContainer">
@@ -126,9 +126,9 @@
         const loading = document.getElementById("loading");
 
         const descriptions = {
-            map1: "This map provides a layered view of the Jamuna River.",
-            map2: "This map shows the NDVI (Normalized Difference Vegetation Index) around the Jamuna River.",
-            map3: "This is a color-coded map highlighting various regions along the river.",
+            map1: " The provided map initializes a Google Earth Engine (GEE) environment to compute and visualize the Normalized Difference Vegetation Index (NDVI) for the Jamuna River area from 2018 to 2023 using Sentinel-2 satellite imagery. It defines a rectangular region of interest and selects specific Sentinel-2 bands (including Blue, Green, Red, NIR, and SWIR) while implementing a cloud masking function to filter out cloudy pixels using the QA60 band. NDVI is calculated using the normalized difference between the near-infrared (NIR) and red bands. The process involves looping through the years, loading the Sentinel-2 imagery, applying the cloud mask, and calculating the median NDVI for each year. The NDVI layers are then added to an interactive map for visualization, allowing users to observe changes in vegetation over the specified period.      ",
+            map2: " This map visualizes environmental changes and river dynamics in the Jamuna River region using satellite imagery from Google Earth Engine (GEE). It filters out cloudy images for clarity, applies cloud masking, and calculates indices like the Normalized Difference Vegetation Index (NDVI), Modified Normalized Difference Water Index (mNDWI), Enhanced Vegetation Index (EVI), and Land Surface Water Index (LSWI) to detect water bodies, vegetation, and alluvial deposits. The analysis classifies areas into active river channels, sparse vegetation, wetted channels, and alluvial deposits, with noise removal through pixel connectivity checks. The outputs include true and false-color composites, along with binary masks for water bodies and active river channels, enabling detailed monitoring of ecological changes and riverine processes ",
+            map3: "  The maps visualize predicted shoreline change for the upcoming year, based on historical shoreline change data, clustered into three color-coded zones—red, yellow, and green—representing high, moderate, and low change, respectively. The interactive Folium map groups these predictions by geographic location, with colored markers and pop-ups displaying predicted values. This spatial visualization helps identify areas at greater erosion risk, guiding targeted monitoring and intervention along specific zones based on latitude and longitude.   ",
         };
 
         mapSelector.addEventListener("change", function () {

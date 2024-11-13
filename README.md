@@ -1,2 +1,2 @@
 # Coastline_Defenders
- ![CoastLine Defenders](images/Coastline.png)
+ ![CoastLine Defenders](images/Coastline.jpeg)
